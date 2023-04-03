@@ -1,0 +1,27 @@
+{
+  "name": "learning-nodejs",
+  "version": "1.0.0",
+  "description": "This project is for my learning purpose.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namanx/learning-nodejs.git"
+  },
+  "keywords": [
+    "Nodejs"
+  ],
+  "author": "Naman Guntiwar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/namanx/learning-nodejs/issues"
+  },
+  "homepage": "https://github.com/namanx/learning-nodejs#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}
