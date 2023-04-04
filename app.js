@@ -9,6 +9,7 @@ app.use((req,resp,next) =>{
 
 app.use((req,resp,next) =>{
     console.log("In another middleware !");
+    resp.send('<h1>Hello from Express js</h1>');
 });
 
 const server = http.createServer(app);
