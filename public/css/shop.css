@@ -41,3 +41,7 @@ body {
 .main-header-item a:active {
     color: rgb(82, 13, 241);
 }
+
+.main-list{
+    margin-left: 20px;
+}

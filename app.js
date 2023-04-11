@@ -1,19 +1,25 @@
 const path = require('path');
-const express = require("express");
-const bodyParser = require("body-parser");
+
+const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
 
+app.set('view engine', 'pug');
+app.set('views', 'views');
 
-const adminRoutes = require("./routes/admin.js");
-const shopRoutes = require('./routes/shop.js');
+const adminData = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname,'public'))); // for accessing the file system to serve files statically
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin',adminRoutes);
+app.use('/admin', adminData.routes);
 app.use(shopRoutes);
 
-app.use((req,resp,next)=>{
-    resp.status(404).sendFile(path.join(__dirname,'views','page-not-found.html'));
+app.use((req, res, next) => {
+     res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+    // res.status(404).render('page-not-found');
 });
+
 app.listen(3000);
