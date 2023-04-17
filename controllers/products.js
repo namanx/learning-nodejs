@@ -24,3 +24,4 @@ exports.getShopmethod = (req, res, next) => {
       productCSS : true
     });
   };
+
