@@ -28,5 +28,8 @@
     "express-handler": "^0.2.0",
     "nodemon": "^2.0.22",
     "pug": "^3.0.2"
-  }
+  },
+  "nodemonConfig": {        
+    "ignore": ["data/products.json"]  
+}
 }
