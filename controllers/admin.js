@@ -21,11 +21,15 @@ exports.getAddProduct = (req, res, next) => {
   };
 
   exports.getProducts = (req, res, next) => {
-    res.render('admin/products', {
-      pageTitle: 'Admin Products',
-      path: '/admin/products',
-      formsCSS: true,
-      productCSS: true,
-      activeAddProduct: true
+    Product.fetchAll((product)=>{
+      res.render('admin/products', {
+        pageTitle: 'Admin Products',
+        path: '/admin/products',
+        prods : product,
+        formsCSS: true,
+        productCSS: true,
+        activeAddProduct: true
+      })
     });
+   
   };
