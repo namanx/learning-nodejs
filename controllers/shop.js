@@ -1,17 +1,6 @@
 const Product = require('../models/product');
 
 
-
-exports.getShopmethod = (req, res, next) => {
-  Product.fetchAll(products => {
-    res.render('shop/product-list', {
-      prods: products,
-      pageTitle: 'All Products',
-      path: '/products-list'
-    });
-  });
-};
-
 exports.getIndexPage = (req,res,next)=>{
   Product.fetchAll(products => {
     res.render('shop/index', {
@@ -21,6 +10,26 @@ exports.getIndexPage = (req,res,next)=>{
     });
   });
 }
+
+
+exports.getShopmethod = (req, res, next) => {
+  Product.fetchAll(products => {
+    res.render('shop/product-list', {
+      prods: products,
+      pageTitle: 'All Products',
+      path: '/product-list'
+    });
+  });
+};
+
+exports.getProductID = (req,res,next) =>{
+  const prodId = req.params.productID;
+  Product.findById(prodId,product=>{
+    console.log(product);
+  })
+  res.redirect('/');
+};
+
 
 exports.getCart = (req,res,next)=>{
   res.render('shop/cart',{
