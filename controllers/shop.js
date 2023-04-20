@@ -25,9 +25,13 @@ exports.getShopmethod = (req, res, next) => {
 exports.getProductID = (req,res,next) =>{
   const prodId = req.params.productID;
   Product.findById(prodId,product=>{
-    console.log(product);
+    res.render('shop/product-detail',{
+      product : product,
+      pageTitle : product.title,
+      path : '/product-list'
+    })
   })
-  res.redirect('/');
+  
 };
 
 
